@@ -26,20 +26,16 @@ public class Solver implements SolverInterface {
 				int v = current.next();
 				schema.set(row, column, v);
 				stack.push(current);
-				column++;
 				current = select(row,column,schema);
 			} else {
 				current = (stack.isEmpty()?null:stack.pop());
+				schema.clear(current.getRow(),current.getColumn());
 			}
 		}
 		return schema.isFull();
 	}
 	
 	private Alternatives select(int row, int column, Schema schema) {
-		if (column == schema.getRange()) {
-			row++;
-			column = 0;
-		}
 		while (row<schema.getRange()) {
 			if (schema.isEmpty(row,column)) {
 				return new Alternatives(row, column, schema.validValuesAt(row, column));

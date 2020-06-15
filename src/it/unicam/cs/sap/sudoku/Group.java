@@ -13,8 +13,9 @@ import java.util.Set;
  */
 public class Group {
 	
-	private Cell[] data;
-	private Set<Integer> values;
+	private Cell[] data;//In data[i] è memorizzata la cella che contiene il valore (i+1). 
+					    //Questo valore è null se il valore (i+1) non è presente nel gruppo.
+	private Set<Integer> values; //Insieme dei valori non presenti nel gruppo.
 	
 	public Group(int size) {
 		this.data = new Cell[size];

@@ -47,4 +47,11 @@ public class Alternatives {
 	public int getColumn() {
 		return j;
 	}
+
+	@Override
+	public String toString() {
+		return "("+getRow()+","+getColumn()+"): "+current+"-"+values;
+	}
+	
+	
 }
